@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/views/home'
 import Movie from '@/views/movie'
 import Book from '@/views/book'
+import BookHome from '@/pages/movie/home'
 import Music from '@/views/music'
 
 Vue.use(Router)
@@ -16,8 +17,14 @@ export default new Router({
     },
     {
       path: '/movie',
-      name: 'Movie',
-      component: Movie
+      component: Movie,
+      children: [
+        {
+          path: '/',
+          name: 'BookHome',
+          component: BookHome
+        }
+      ]
     },
     {
       path: '/music',

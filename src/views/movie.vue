@@ -1,14 +1,22 @@
 <template>
   <div>
-    movie
+    <tab>
+      <tab-item selected>正在热映</tab-item>
+      <tab-item>即将上映</tab-item>
+      <tab-item>榜单</tab-item>
+      <tab-item>口碑</tab-item>
+      <tab-item>新片</tab-item>
+    </tab>
+    <transition>
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
+import { Tab, TabItem } from 'vux'
 export default {
-  mounted () {
-    this.$store.dispatch('fetch_movie_list')
-  }
+  components: {Tab, TabItem}
 }
 </script>
 
