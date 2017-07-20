@@ -1,9 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/home'
-import Movie from '@/views/movie'
+const Movie = r => require.ensure([], () => r(require('@/views/movie')), 'Movie')
+const MovieHome = r => require.ensure([], () => r(require('@/pages/movie/home')), 'Movie')
+const MovieRank = r => require.ensure([], () => r(require('@/pages/movie/rank')), 'Movie')
+const MovieTop = r => require.ensure([], () => r(require('@/pages/movie/top')), 'Movie')
+const MovieComing = r => require.ensure([], () => r(require('@/pages/movie/coming')), 'Movie')
+const MovieNew = r => require.ensure([], () => r(require('@/pages/movie/new')), 'Movie')
 import Book from '@/views/book'
-import BookHome from '@/pages/movie/home'
 import Music from '@/views/music'
 
 Vue.use(Router)
@@ -21,8 +25,28 @@ export default new Router({
       children: [
         {
           path: '/',
-          name: 'BookHome',
-          component: BookHome
+          name: 'MovieHome',
+          component: MovieHome
+        },
+        {
+          path: '/movie/coming',
+          name: 'MovieComing',
+          component: MovieComing
+        },
+        {
+          path: '/movie/top',
+          name: 'MovieTop',
+          component: MovieTop
+        },
+        {
+          path: '/movie/rank',
+          name: 'MovieRank',
+          component: MovieRank
+        },
+        {
+          path: '/movie/new',
+          name: 'MovieNew',
+          component: MovieNew
         }
       ]
     },

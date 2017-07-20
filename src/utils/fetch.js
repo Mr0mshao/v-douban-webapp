@@ -1,10 +1,11 @@
 import axios from 'axios'
+import qs from 'qs'
 import base from './config.base'
 import NProgress from 'nprogress'
 axios.defaults.baseURL = base.baseURL
 axios.defaults.timeout = 5000
 axios.defaults.transformRequest = [function (data) {
-  return data
+  return qs.stringify(data)
 }]
 axios.interceptors.request.use((config) => {
   NProgress.start()

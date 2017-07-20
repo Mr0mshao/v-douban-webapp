@@ -1,25 +1,55 @@
 <template>
   <div>
     <tab>
-      <tab-item selected>正在热映</tab-item>
-      <tab-item>即将上映</tab-item>
-      <tab-item>榜单</tab-item>
-      <tab-item>口碑</tab-item>
-      <tab-item>新片</tab-item>
+      <tab-item 
+        v-for="(item, index) in tabBarMenu"
+        :key="index"
+        :line-width="item.lineWidth"
+        :selected="item.isSelect"
+        @click.native="routerToPath(`${item.link}`)"
+      >
+        {{item.title}}
+      </tab-item>
     </tab>
     <transition>
-      <router-view></router-view>
+      <router-view :style="{height: getContentHeight - 140 + 'px'}" style="overflow-y:auto"></router-view>
     </transition>
   </div>
 </template>
 
 <script>
 import { Tab, TabItem } from 'vux'
+import base from '@/utils/config.base'
 export default {
-  components: {Tab, TabItem}
+  components: {Tab, TabItem},
+  data () {
+    return {
+    }
+  },
+  computed: {
+    tabBarMenu () {
+      return base.movieBar
+    },
+    getContentHeight () {
+      return base.getContentHeight()
+    }
+  },
+  methods: {
+    routerToPath (path) {
+      this.$router.replace(path)
+    }
+  }
 }
 </script>
 
 <style>
-  
+.tab-link {
+  display: block;
+}
+.tab-link:link,
+.tab-link:visited,
+.tab-link:hover,
+.tab-link:active {
+  color: #000;
+}
 </style>

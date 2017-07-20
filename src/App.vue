@@ -42,16 +42,7 @@ export default {
       }
     },
     getContentHeight () {
-      var height = 0
-      if (window.innerHeight) {
-        height = window.innerHeight
-      } else if ((document.body) && (document.body.clientHeight)) {
-        height = document.body.clientHeight
-      }
-      if (document.documentElement && document.documentElement.clientHeight) {
-        height = document.documentElement.clientHeight
-      }
-      return height
+      return base.getContentHeight()
     },
     menu () {
       return base.menuBar

@@ -1,26 +1,48 @@
 <template>
-  <div>
-    {{done_movie_list}}
-  </div>
+  <load-more
+    :autoFill="true"
+    :bottomAllLoaded="allLoaded"
+    :bottomMethod="getMovieInTheaters"
+    :bottomDistance="100"
+  >
+    <group gutter="0">
+      <cell
+        v-for="(item,index) in done_movie_list"
+        :key="index"
+        :title="item.title"
+      ></cell>
+    </group>
+  </load-more>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import { Group, Cell } from 'vux'
+import loadMore from '@/components/pull-drop-refresh'
 export default {
-  name: 'movie',
-  deta () {
-    return {}
+  name: 'movieInTheaters',
+  components: { loadMore, Group, Cell },
+  data () {
+    return {
+      start: 0,
+      total: 0,
+      allLoaded: true,
+      count: 0
+    }
   },
   computed: {
     ...mapGetters(['done_movie_list'])
   },
   methods: {
-    getMovies () {
-      this.$store.dispatch('fetch_movie_list')
+    getMovieInTheaters () {
+      this.$store.dispatch('fetch_movie_list', {
+        start: this.start,
+        count: this.count
+      })
     }
   },
   mounted () {
-    this.getMovies()
+    // this.getMovieInTheaters()
   }
 }
 </script>

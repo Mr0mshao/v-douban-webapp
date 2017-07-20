@@ -29,5 +29,49 @@ export default {
       badge: null
     }
   ],
-  baseURL: process.env.NODE_DEV === 'production' ? '' : 'http://localhost:8080'
+  movieBar: [
+    {
+      lineWidth: 3,
+      isSelect: true,
+      link: '/movie/',
+      title: '正在热映'
+    },
+    {
+      lineWidth: 3,
+      isSelect: false,
+      link: '/movie/coming',
+      title: '即将上映'
+    },
+    {
+      lineWidth: 3,
+      isSelect: false,
+      link: '/movie/top',
+      title: 'TOP榜单'
+    },
+    {
+      lineWidth: 3,
+      isSelect: false,
+      link: '/movie/rank',
+      title: '口碑排行'
+    },
+    {
+      lineWidth: 3,
+      isSelect: false,
+      link: '/movie/new',
+      title: '新片预告'
+    }
+  ],
+  baseURL: process.env.NODE_DEV === 'production' ? '' : 'http://localhost:8080',
+  getContentHeight: function () {
+    let height = 0
+    if (window.innerHeight) {
+      height = window.innerHeight
+    } else if ((document.body) && (document.body.clientHeight)) {
+      height = document.body.clientHeight
+    }
+    if (document.documentElement && document.documentElement.clientHeight) {
+      height = document.documentElement.clientHeight
+    }
+    return height
+  }
 }
