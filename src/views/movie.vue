@@ -12,7 +12,7 @@
       </tab-item>
     </tab>
     <transition>
-      <router-view :style="{height: getContentHeight - 140 + 'px'}" style="overflow-y:auto"></router-view>
+      <router-view :style="{height: getContentHeight - 140 + 'px'}" style="overflow-y:auto;"></router-view>
     </transition>
   </div>
 </template>
@@ -41,15 +41,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.tab-link {
-  display: block;
-}
-.tab-link:link,
-.tab-link:visited,
-.tab-link:hover,
-.tab-link:active {
-  color: #000;
-}
-</style>

@@ -38,7 +38,7 @@ export default {
   computed: {
     leftOptions () {
       return {
-        showBack: this.$route.path !== '/'
+        // showBack: this.$route.path !== '/'
       }
     },
     getContentHeight () {
@@ -49,7 +49,7 @@ export default {
     }
   },
   mounted () {},
-  menthods: {},
+  methods: {},
   watch: {
     '$route' (to, from) {
       const toDepth = to.path.split('/').length

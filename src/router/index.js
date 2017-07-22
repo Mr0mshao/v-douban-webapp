@@ -6,7 +6,7 @@ const MovieHome = r => require.ensure([], () => r(require('@/pages/movie/home'))
 const MovieRank = r => require.ensure([], () => r(require('@/pages/movie/rank')), 'Movie')
 const MovieTop = r => require.ensure([], () => r(require('@/pages/movie/top')), 'Movie')
 const MovieComing = r => require.ensure([], () => r(require('@/pages/movie/coming')), 'Movie')
-const MovieNew = r => require.ensure([], () => r(require('@/pages/movie/new')), 'Movie')
+const MovieSearch = r => require.ensure([], () => r(require('@/pages/movie/search')), 'Movie')
 import Book from '@/views/book'
 import Music from '@/views/music'
 
@@ -44,9 +44,9 @@ export default new Router({
           component: MovieRank
         },
         {
-          path: '/movie/new',
-          name: 'MovieNew',
-          component: MovieNew
+          path: '/movie/search',
+          name: 'MovieSearch',
+          component: MovieSearch
         }
       ]
     },

@@ -52,13 +52,13 @@ export default {
       lineWidth: 3,
       isSelect: false,
       link: '/movie/rank',
-      title: '口碑排行'
+      title: '北美排行'
     },
     {
       lineWidth: 3,
       isSelect: false,
-      link: '/movie/new',
-      title: '新片预告'
+      link: '/movie/search',
+      title: '电影搜索'
     }
   ],
   baseURL: process.env.NODE_DEV === 'production' ? '' : 'http://localhost:8080',
