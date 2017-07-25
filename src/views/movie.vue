@@ -12,7 +12,10 @@
       </tab-item>
     </tab>
     <transition>
-      <router-view :style="{height: getContentHeight - 140 + 'px'}" style="overflow-y:auto;"></router-view>
+      <router-view
+        :style="{height: getContentHeight - 140 + 'px'}" 
+        style="overflow-x:hidden;overflow-y:auto;"
+      ></router-view>
     </transition>
   </div>
 </template>

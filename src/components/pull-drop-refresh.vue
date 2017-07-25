@@ -19,6 +19,9 @@
 </template>
 
 <style scoped>
+.loadmore {
+  overflow: hidden
+} 
 .loadmore-top,
 .loadmore-bottom {
     text-align: center;
