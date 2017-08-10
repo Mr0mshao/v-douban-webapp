@@ -4,8 +4,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <title>v-douban-website</title>
+    <style>
+      #entry {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 100;
+      }
+      #entryAdv {
+        display: none;
+      }
+      #entryTim {
+        position: fixed;
+        width: 2.2rem;
+        line-height: 0.68rem;
+        font-size: 0.32rem;
+        z-index: 400;
+        text-align: center;
+        border-radius: 2rem;
+        top: 0.5rem;
+        right: 0.5rem;
+        border: 1px solid #ccc;
+      }
+    </style>
   </head>
   <body>
+    <section class="adv" id="entryAdv">
+      <img src="" alt="" id="entry">
+      <p id="entryTim"></p>
+    </section>
     <div id="app-box"></div>
     <!-- built files will be auto injected -->
   </body>
