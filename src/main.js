@@ -5,7 +5,7 @@ import FastClick from 'fastclick'
 import router from './router/index'
 import store from './store/index'
 import App from './App'
-import tst from './mixin/test'
+import tst from './plugins/test'
 Vue.use(tst, {xx: 'xxx'})
 FastClick.attach(document.body)
 
