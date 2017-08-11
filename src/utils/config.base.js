@@ -1,6 +1,20 @@
 export default {
   menuBar: [
     {
+      select: false,
+      link: '/coming',
+      name: 'Coming',
+      icon: null,
+      badge: 1
+    },
+    {
+      select: false,
+      link: '/top',
+      name: 'Top',
+      icon: null,
+      badge: null
+    },
+    {
       select: true,
       link: '/',
       name: 'Home',
@@ -9,22 +23,15 @@ export default {
     },
     {
       select: false,
-      link: '/movie',
-      name: 'Movie',
-      icon: null,
-      badge: 1
-    },
-    {
-      select: false,
-      link: '/book',
-      name: 'Book',
+      link: '/rank',
+      name: 'Rank',
       icon: null,
       badge: null
     },
     {
       select: false,
-      link: '/music',
-      name: 'Music',
+      link: '/search',
+      name: 'Search',
       icon: null,
       badge: null
     }
