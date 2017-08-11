@@ -66,7 +66,7 @@ const Movie = {
     },
     'fetch_movie_searchResult' ({commit}, keyword) {
       axios
-      .get(`api/movie/movie/search?q=${keyword}`)
+      .get(`api/movie/search?q=${keyword}`)
       .then((res) => {
         commit('toggle_movie_searchResult', res.subjects)
       })

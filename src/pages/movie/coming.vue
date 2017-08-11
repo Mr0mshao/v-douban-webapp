@@ -1,25 +1,23 @@
 <template>
-  <div>
-    <load-more
-      ref="loadmore"
-      :auto-fill="true"
-      :bottom-method="fetchMovieData"
-      :bottom-all-loaded="allLoaded"
-    >
-      <flexbox :gutter="0" wrap="wrap" align="flex-start">
-        <flexbox-item 
-          :span="1/3"
-          v-for="(item,index) in done_movie_coming"
-          :key="index"
-        >
-          <div class="movie-box movie-box-position">
-            <img :src="item.images.medium" alt="" class="movie-post">
-            <p class="movie-desc movie-desc-position">{{item.title}}</p>
-          </div>
-        </flexbox-item>
-      </flexbox>
-    </load-more>
-  </div>
+  <load-more
+    ref="loadmore"
+    :auto-fill="true"
+    :bottom-method="fetchMovieData"
+    :bottom-all-loaded="allLoaded"
+  >
+    <flexbox :gutter="0" wrap="wrap" align="flex-start">
+      <flexbox-item 
+        :span="1/3"
+        v-for="(item,index) in done_movie_coming"
+        :key="index"
+      >
+        <div class="movie-box movie-box-position">
+          <img :src="item.images.medium" alt="" class="movie-post">
+          <p class="movie-desc movie-desc-position">{{item.title}}</p>
+        </div>
+      </flexbox-item>
+    </flexbox>
+  </load-more>
 </template>
 <script>
 import { mapGetters } from 'vuex'

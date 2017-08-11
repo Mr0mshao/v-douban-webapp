@@ -1,5 +1,4 @@
 <template>
-  <div>
     <load-more
       ref="loadmore"
       :auto-fill="true"
@@ -11,17 +10,18 @@
           :span="1/3"
           v-for="(item,index) in done_movie_list"
           :key="index"
+          style="height: 200px;"
         >
           <div class="movie-box">
             <img :src="item.images.medium" alt="" class="movie-post">
             <p class="movie-desc">{{item.title}}</p>
-            <rater :max="5" v-model="item.rating.average" slot="value" :font-size="10"></rater>
+            <i v-show="false">{{aa[index] = item.rating.average / 2}}</i>
+            <rater :max="5" v-model="aa[index]" slot="value" :font-size="10"></rater>
             <span style="font-size:10px;">{{item.rating.average?item.rating.average:'暂无'}}</span>
           </div>
         </flexbox-item>
       </flexbox>
     </load-more>
-  </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
@@ -35,7 +35,8 @@ export default {
       start: 0,
       total: 0,
       allLoaded: false,
-      count: 0
+      count: 0,
+      aa: []
     }
   },
   computed: {

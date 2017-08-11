@@ -1,26 +1,24 @@
 <template>
-  <div>
-    <load-more
-      ref="loadmore"
-      :auto-fill="true"
-      :bottom-method="fetchRankData"
-      :bottom-all-loaded="allLoaded"
-    >
-      <group :gutter="0">
-        <cell
-        v-for="(item, index) in done_movie_top"
-        :key="index"
-        :title="item.title"
-        :value="item.genres[0]"
-        >
-        <img slot="icon" :src="item.images.small" alt="" style="dispaly:block;height:50px;width:45px;margin:0;padding:0;margin-right:5px">
-        <span slot="after-title">
-          评分：{{item.rating.average}}
-        </span>
-        </cell>
-      </group>
-    </load-more>
-  </div>
+  <load-more
+    ref="loadmore"
+    :auto-fill="true"
+    :bottom-method="fetchRankData"
+    :bottom-all-loaded="allLoaded"
+  >
+    <group :gutter="0">
+      <cell
+      v-for="(item, index) in done_movie_top"
+      :key="index"
+      :title="item.title"
+      :value="item.genres[0]"
+      >
+      <img slot="icon" :src="item.images.small" alt="" style="dispaly:block;height:50px;width:45px;margin:0;padding:0;margin-right:5px">
+      <span slot="after-title">
+        评分：{{item.rating.average}}
+      </span>
+      </cell>
+    </group>
+  </load-more>
 </template>
 
 <script>
