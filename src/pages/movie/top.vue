@@ -1,7 +1,7 @@
 <template>
   <load-more
     ref="loadmore"
-    :auto-fill="true"
+    :auto-fill="false"
     :bottom-method="fetchRankData"
     :bottom-all-loaded="allLoaded"
   >
@@ -11,6 +11,7 @@
       :key="index"
       :title="item.title"
       :value="item.genres[0]"
+      :link="{name:'MovieDetail', params:{'id': item.id}}"
       >
       <img slot="icon" :src="item.images.small" alt="" style="dispaly:block;height:50px;width:45px;margin:0;padding:0;margin-right:5px">
       <span slot="after-title">
@@ -51,6 +52,9 @@ export default {
     fetchRankData () {
       this.getTopData(this.start)
     }
+  },
+  created () {
+    this.fetchRankData()
   }
 }
 </script>

@@ -44,7 +44,7 @@ export default {
       this.$store.dispatch('fetch_movie_usRank')
     }
   },
-  mounted () {
+  created () {
     this.getMovies()
   }
 }

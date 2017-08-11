@@ -1,7 +1,7 @@
 <template>
   <load-more
     ref="loadmore"
-    :auto-fill="true"
+    :auto-fill="false"
     :bottom-method="fetchMovieData"
     :bottom-all-loaded="allLoaded"
   >
@@ -11,10 +11,12 @@
         v-for="(item,index) in done_movie_coming"
         :key="index"
       >
-        <div class="movie-box movie-box-position">
-          <img :src="item.images.medium" alt="" class="movie-post">
-          <p class="movie-desc movie-desc-position">{{item.title}}</p>
-        </div>
+        <router-link :to="{name:'MovieDetail', params:{'id': item.id}}" tag="div">
+          <div class="movie-box movie-box-position">
+            <img :src="item.images.medium" alt="" class="movie-post">
+            <p class="movie-desc movie-desc-position">{{item.title}}</p>
+          </div>
+        </router-link>
       </flexbox-item>
     </flexbox>
   </load-more>
@@ -51,6 +53,9 @@ export default {
     fetchMovieData () {
       this.movieComing(this.start)
     }
+  },
+  created () {
+    this.fetchMovieData()
   }
 }
 </script>

@@ -7,7 +7,7 @@
     ></x-header>
     <div class="container" :style="{height: getContentHeight-96 + 'px'}">
       <transition :name="transitionName">
-        <keep-alive>
+        <keep-alive exclude="MovieDetail"]>
           <router-view></router-view>
         </keep-alive>
       </transition>
@@ -76,9 +76,15 @@ body, html, #app {
     user-select: none;
 }
 .container {
-  height: 571px;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+}
+.my-link:focus,
+.my-link:active,
+.my-link:any-link,
+.my-link:hover {
+  outline: none;
+  color: #000;
 }
 .slide-left-enter-active,.slide-left-leave-active {
     transition: all 0.4s ease-in-out;

@@ -5,6 +5,7 @@ const MovieRank = r => require.ensure([], () => r(require('@/pages/movie/rank'))
 const MovieTop = r => require.ensure([], () => r(require('@/pages/movie/top')), 'Movie')
 const MovieComing = r => require.ensure([], () => r(require('@/pages/movie/coming')), 'Movie')
 const MovieSearch = r => require.ensure([], () => r(require('@/pages/movie/search')), 'Movie')
+import MovieDetail from '@/pages/movie.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -33,6 +34,11 @@ export default new Router({
       path: '/search',
       name: 'MovieSearch',
       component: MovieSearch
+    },
+    {
+      path: '/m/:id',
+      name: 'MovieDetail',
+      component: MovieDetail
     }
   ]
 })

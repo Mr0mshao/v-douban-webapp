@@ -5,14 +5,18 @@ const Movie = {
     top: [],
     coming: [],
     usRank: [],
-    serachResult: []
+    serachResult: [],
+    movieContent: {},
+    movieComment: []
   },
   getters: {
     'done_movie_list': state => state.movieList,
     'done_movie_top': state => state.top,
     'done_movie_usRank': state => state.usRank,
     'done_movie_coming': state => state.coming,
-    'done_movie_searchResult': state => state.serachResult
+    'done_movie_searchResult': state => state.serachResult,
+    'done_movie_content': state => state.movieContent,
+    'done_movie_comment': state => state.movieComment
   },
   actions: {
     'fetch_movie_list' ({commit}, params) {
@@ -70,6 +74,21 @@ const Movie = {
       .then((res) => {
         commit('toggle_movie_searchResult', res.subjects)
       })
+    },
+    'fetch_movie_content' ({commit, dispatch}, id) {
+      axios
+      .get(`api/movie/subject/${id}`)
+      .then((res) => {
+        commit('toggle_movie_content', res)
+        // dispatch('fetch_movie_comment', id)
+      })
+    },
+    'fetch_movie_comment' ({commit}, id) {
+      axios
+      .get(`api/movie/subject/${id}/comments`)
+      .then((res) => {
+        commit('toggle_movie_comment', res)
+      })
     }
   },
   mutations: {
@@ -87,6 +106,12 @@ const Movie = {
     },
     'toggle_movie_searchResult' (state, res) {
       state.serachResult = res
+    },
+    'toggle_movie_content' (state, res) {
+      state.movieContent = res
+    },
+    'toggle_movie_comment' (state, res) {
+      state.movieComment = res
     }
   }
 }

@@ -2,6 +2,7 @@ import axios from 'axios'
 import qs from 'qs'
 import base from './config.base'
 import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 axios.defaults.baseURL = base.baseURL
 axios.defaults.timeout = 5000
 axios.defaults.transformRequest = [function (data) {

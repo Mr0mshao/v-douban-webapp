@@ -1,7 +1,7 @@
 <template>
     <load-more
-      ref="loadmore"
-      :auto-fill="true"
+      ref="home_loadmore"
+      :auto-fill="false"
       :bottom-method="fetchMovieData"
       :bottom-all-loaded="allLoaded"
     >
@@ -12,13 +12,15 @@
           :key="index"
           style="height: 200px;"
         >
-          <div class="movie-box">
-            <img :src="item.images.medium" alt="" class="movie-post">
-            <p class="movie-desc">{{item.title}}</p>
-            <i v-show="false">{{aa[index] = item.rating.average / 2}}</i>
-            <rater :max="5" v-model="aa[index]" slot="value" :font-size="10"></rater>
-            <span style="font-size:10px;">{{item.rating.average?item.rating.average:'暂无'}}</span>
-          </div>
+          <router-link :to="{name:'MovieDetail', params:{'id': item.id}}" tag="div">
+            <div class="movie-box">
+              <img :src="item.images.medium" alt="" class="movie-post">
+              <p class="movie-desc">{{item.title}}</p>
+              <i v-show="false">{{aa[index] = item.rating.average / 2}}</i>
+              <rater :max="5" v-model="aa[index]" slot="value" :font-size="10"></rater>
+              <span style="font-size:10px;">{{item.rating.average?item.rating.average:'暂无'}}</span>
+            </div>
+          </router-link>
         </flexbox-item>
       </flexbox>
     </load-more>
@@ -49,13 +51,16 @@ export default {
         .then((params) => {
           _this.start += params.count
           setTimeout(() => {
-            _this.$refs.loadmore.onBottomLoaded()
+            _this.$refs.home_loadmore.onBottomLoaded()
           }, 1000)
         })
     },
     fetchMovieData () {
       this.movieInTheaters(this.start)
     }
+  },
+  created () {
+    this.fetchMovieData()
   }
 }
 </script>
