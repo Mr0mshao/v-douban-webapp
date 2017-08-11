@@ -42,7 +42,7 @@
 
 <script type="text/babel">
   export default {
-    name: 'mt-loadmore',
+    name: 'loadmore',
     props: {
       maxDistance: {
         type: Number,

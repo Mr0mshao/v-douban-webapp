@@ -5,9 +5,13 @@
       :left-options="leftOptions"
       transition="vux-header-fade-in-right"
     ></x-header>
-    <transition :name="transitionName">
-      <router-view :style="{height: getContentHeight-96 + 'px'}"></router-view>
-    </transition>
+    <div class="container" :style="{height: getContentHeight-96 + 'px'}">
+      <transition :name="transitionName">
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
+      </transition>
+    </div>
     <tabbar>
       <tabbar-item
         v-for="(item,index) in menu"
@@ -25,14 +29,15 @@
 </template>
 
 <script>
-import {XHeader, Tabbar, TabbarItem} from 'vux'
+import {XHeader, Tabbar, TabbarItem, Divider} from 'vux'
 import base from './utils/config.base'
 export default {
   name: 'app',
-  components: { XHeader, Tabbar, TabbarItem },
+  components: { XHeader, Tabbar, TabbarItem, Divider },
   data () {
     return {
-      transitionName: 'slied-left'
+      transitionName: 'slied-left',
+      menu: base.menuBar
     }
   },
   computed: {
@@ -43,9 +48,6 @@ export default {
     },
     getContentHeight () {
       return base.getContentHeight()
-    },
-    menu () {
-      return base.menuBar
     }
   },
   mounted () {},
@@ -63,8 +65,20 @@ export default {
 <style lang="less">
 @import '~vux/src/styles/reset.less';
 
-body {
-  background-color: #fbf9fe;
+body, html, #app {
+    height: 100%;
+    display: block;
+    background-color: #fbf9fe;
+    -webkit-overflow-scrolling: touch;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.container {
+  height: 571px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .slide-left-enter-active,.slide-left-leave-active {
     transition: all 0.4s ease-in-out;
