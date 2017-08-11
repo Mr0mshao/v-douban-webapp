@@ -13,6 +13,19 @@
     <meta content="email=no" name="format-detection"/>
     <!--iphone中safari私有meta标签,允许全屏模式浏览,隐藏浏览器导航栏-->
     <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- UC强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="true">
+    <!-- QQ强制全屏  -->
+    <meta name="x5-screen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
     <title>v-douban-website</title>
     <style>
       #entry {
@@ -42,10 +55,10 @@
     </style>
   </head>
   <body>
-    <section class="adv" id="entryAdv">
+    <!-- <section class="adv" id="entryAdv">
       <img src="" alt="" id="entry">
       <p id="entryTim"></p>
-    </section>
+    </section> -->
     <div id="app-box"></div>
     <!-- built files will be auto injected -->
   </body>
