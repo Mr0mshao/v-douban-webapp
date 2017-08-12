@@ -10,7 +10,9 @@ Vue.use(tst, {xx: 'xxx'})
 FastClick.attach(document.body)
 
 Vue.config.productionTip = false
-
+Vue.directive('pageTitle', function (el, binding) {
+  document.title = binding.value
+})
 /* eslint-disable no-new */
 new Vue({
   router,
