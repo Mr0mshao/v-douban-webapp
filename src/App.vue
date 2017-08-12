@@ -1,11 +1,12 @@
 <template>
-  <div id="app">
+  <div>
     <x-header 
-      title="首页" 
+      :title="$route.meta.head" 
       :left-options="leftOptions"
-      transition="vux-header-fade-in-right"
+      :transition="headTransition"
+      style="background-color: #a7a7a7; box-shadow: 2px 2px 2px #eee;margin-bottom:10px;"
     ></x-header>
-    <div class="container" :style="{height: getContentHeight-96 + 'px'}">
+    <div class="container" :style="{height: getContentHeight-106 + 'px'}">
       <transition :name="transitionName">
         <keep-alive exclude="MovieDetail"]>
           <router-view></router-view>
@@ -37,26 +38,26 @@ export default {
   data () {
     return {
       transitionName: 'slied-left',
-      menu: base.menuBar
+      menu: base.menuBar,
+      headTransition: 'vux-header-fade-in-right'
     }
   },
   computed: {
     leftOptions () {
       return {
-        // showBack: this.$route.path !== '/'
+        showBack: this.$route.path !== '/'
       }
     },
     getContentHeight () {
       return base.getContentHeight()
     }
   },
-  mounted () {},
-  methods: {},
   watch: {
     '$route' (to, from) {
       const toDepth = to.path.split('/').length
       const fromDepth = from.path.split('/').length
       this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+      this.headTransition = toDepth > fromDepth ? 'vux-header-fade-in-right' : 'vux-header-fade-in-left'
     }
   }
 }
