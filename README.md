@@ -44,7 +44,7 @@ npm run dev
 ```javascript
 dev: {
   env: require('./dev.env'),
-  port: 8880,
+  port: 8080,
   assetsSubDirectory: 'static',
   assetsPublicPath: '/',
   proxyTable: {
