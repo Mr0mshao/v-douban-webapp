@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" v-pageTitle="done_movie_content.title">
     <h1 class="title">{{done_movie_content.title}}</h1>
     <section class="subject">
       <flexbox>
@@ -48,9 +48,7 @@ export default {
   },
   components: {Divider, Flexbox, FlexboxItem, Rater},
   computed: {...mapGetters(['done_movie_content'])},
-  methods: {},
   mounted () {
-    console.log(this.$route.params)
     let id = this.$route.params.id
     this.$store.dispatch('fetch_movie_content', id)
   }

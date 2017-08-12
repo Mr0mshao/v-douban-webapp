@@ -1,5 +1,6 @@
 <template>
   <load-more
+    v-pageTitle="$route.meta.head"
     ref="loadmore"
     :auto-fill="false"
     :bottom-method="fetchRankData"

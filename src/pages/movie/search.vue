@@ -1,5 +1,5 @@
 <template>
-  <div style="position: relative">
+  <div style="position: relative" v-pageTitle="$route.meta.head">
     <search
       v-model.trim="value"
       position="absolute"
@@ -15,6 +15,7 @@
         :key="index"
         :title="item.title"
         :value="item.genres[0]"
+        :link="{name:'MovieDetail', params:{'id': item.id}}"
         >
         <img slot="icon" :src="item.images.small" alt="" style="dispaly:block;height:50px;width:45px;margin:0;padding:0;margin-right:5px">
         <span slot="after-title">

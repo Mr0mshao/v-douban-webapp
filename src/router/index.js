@@ -13,32 +13,38 @@ export default new Router({
     {
       path: '/',
       name: 'MovieHome',
-      component: MovieHome
+      component: MovieHome,
+      meta: {'head': '首页'}
     },
     {
       path: '/coming',
       name: 'MovieComing',
-      component: MovieComing
+      component: MovieComing,
+      meta: {'head': '即将上映'}
     },
     {
       path: '/top',
       name: 'MovieTop',
-      component: MovieTop
+      component: MovieTop,
+      meta: {'head': '徘行'}
     },
     {
       path: '/rank',
       name: 'MovieRank',
-      component: MovieRank
+      component: MovieRank,
+      meta: {'head': '北美票房'}
     },
     {
       path: '/search',
       name: 'MovieSearch',
-      component: MovieSearch
+      component: MovieSearch,
+      meta: {'head': '搜索'}
     },
     {
       path: '/m/:id',
       name: 'MovieDetail',
-      component: MovieDetail
+      component: MovieDetail,
+      meta: {'head': '详情'}
     }
   ]
 })

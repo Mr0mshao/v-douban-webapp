@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-pageTitle="$route.meta.head">
     <masker 
       style="border-radius: 5px;margin:1px 0" 
       :opacity="0.6"
