@@ -10,7 +10,10 @@ npm install
 npm run dev
 ```
 
-最后打开浏览器，输入`localhost:8880`即可访问。效果图如下：
+最后打开浏览器，输入`localhost:8080`即可访问.
+
+# UI组件库
+* 使用的vux2 组件库。(https://github.com/airyland/vux)。
 
 # 路由
 应用包括下面6个路由
@@ -23,6 +26,7 @@ npm run dev
 
 # 第三方库
 * HTTP库采用了[axios](https://github.com/mzabriskie/axios)。
+* Loading显示采用了[nprogress](https://github.com/rstacruz/nprogress/)。
 
 # 豆瓣API
 该应用使用了下面6个api：
